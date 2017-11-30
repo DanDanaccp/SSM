@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.dao.QuerstionsDao">
+
+  <select id="queryQuerstions" resultType="querstions">
+    select * from querstions
+  </select>
+
+  <select id="queryAnswers" resultType="answers">
+    select * from answers where qid=#{id}
+  </select>
+
+  <select id="queryQuerstionsById" resultType="querstions">
+    select * from querstions where id=#{id}
+  </select>
+
+  <update id="update" >
+    UUPDATE querstions SET answerCount=answerCount+1 WHERE id=#{id};
+  </update>
+
+
+  <insert id="addQuerstions" >
+    insert into querstions VALUES (DEFAULT,#{title},#{detailDesc},0,now())
+  </insert>
+
+
+
+
+</mapper>

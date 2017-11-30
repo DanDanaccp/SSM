@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.dao.AnswersDao">
+
+  <select id="queryAnswers" resultType="answers">
+    select * from answers where qid=#{qid}
+  </select>
+
+  <insert id="addAnswers" >
+    insert into answers VALUES (DEFAULT,#{ansContent},NOW(),#{qid});
+  </insert>
+
+
+  <select id="queryCount" resultType="answers">
+   SELECT COUNT(*) FROM answers WHERE qid=#{qid};
+  </select>
+</mapper>
